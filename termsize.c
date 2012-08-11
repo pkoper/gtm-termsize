@@ -63,7 +63,11 @@ init(int argc, gtm_char_t *name)
 void
 deinit(int argc)
 {
+	if (env[0] == '\0')
+		return;
+
 	sigaction(SIGWINCH, &prev, NULL);
 	unsetenv(env);
+	env[0] = '\0';
 }
 

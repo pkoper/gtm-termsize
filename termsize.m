@@ -1,5 +1,5 @@
 
-;  TermSize
+;  GT.M TermSize
 ;  Copyright (C) 2012 Piotr Koper <piotr.koper@gmail.com>
 ;
 ;  This program is free software: you can redistribute it and/or modify
@@ -20,11 +20,16 @@ termsize ; example
 	d init,square
 	f  r *s:1 q:s>-1  d update
 	w #
+	d deinit
 	q
 
 init
 	d &termsize.init("termsize")	; pass the env name
 	s termsize=$ztrnlnm("termsize")
+	q
+
+deinit
+	d &termsize.deinit()
 	q
 
 update
